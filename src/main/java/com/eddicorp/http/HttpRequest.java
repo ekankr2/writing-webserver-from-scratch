@@ -5,14 +5,20 @@ import java.io.InputStream;
 
 public class HttpRequest {
     private final String uri;
+    private final String method;
 
     public String getUri() {
         return uri;
     }
 
+    public String getMethod() {
+        return method;
+    }
+
     public HttpRequest(InputStream inputStream) throws IOException {
         final String rawRequestLine = readLine(inputStream);
         final String[] partsOfRequestLine = rawRequestLine.split(" ");
+        this.method = partsOfRequestLine[0];
         this.uri = partsOfRequestLine[1];
     }
 
