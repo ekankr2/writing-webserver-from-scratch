@@ -1,6 +1,6 @@
 package com.eddicorp;
 
-import com.eddicorp.http.HttpConnectionHandler;
+import com.eddicorp.server.ServerConnectionHandler;
 
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -13,7 +13,7 @@ public class WebApplication {
         Socket connection;
 
         while ((connection = serverSocket.accept()) != null) {
-            HttpConnectionHandler httpConnectionHandler = new HttpConnectionHandler(connection);
+            ServerConnectionHandler httpConnectionHandler = new ServerConnectionHandler(connection);
             httpConnectionHandler.handleHttp();
         }
     }
