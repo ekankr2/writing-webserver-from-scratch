@@ -9,6 +9,10 @@ public class PostServiceImpl implements PostService {
 
     private final PostRepository repository = PostRepositoryImpl.getInstance();
 
+    public PostServiceImpl(PostRepository postRepository) {
+
+    }
+
     @Override
     public void write(String author, String title, String content) {
         final Post newPost = new Post(author, title, content);
